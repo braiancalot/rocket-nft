@@ -37,7 +37,7 @@ body {
 }
 
 header {
-    max-width: 1200px;
+    max-width: 1400px;
     width: 90%;
     margin: 0 auto;
     padding: 57px 0 90px 0;
@@ -85,8 +85,6 @@ header nav ul a:hover{
     transform: rotate(315deg) translate(7px, -7px);
 }
 
-
-
 header button {
     display: flex;
     align-items: center;
@@ -119,9 +117,141 @@ header button span {
     font-weight: 700;
 }
 
-@media (max-width: 1000px) {
+.hero{
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero .info {
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.hero .info p {
+    font-size: 1.125rem;
+    color: var(--text-color);
+}
+
+.hero .info .artists {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+}
+
+.hero .info .artists .text {
+    font-size: 1.125rem;
+}
+
+.hero .info .artists p strong {
+    display: block;
+}
+
+.hero h1 {
+    width: 596px;
+    font-size: 3.125rem;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.hero h1 .orange {
+    font-style: normal;
+    color: var(--color-logo);
+}
+
+.hero > img {
+    animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gallery {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 305px);
+    grid-template-rows: repeat(2, 192px);
+    justify-content: center;
+    row-gap: 60px;
+    column-gap: 16px;
+}
+
+.gallery .img-container {
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery .img-container img {
+    object-fit: cover;
+    height: 100%;
+    transition: transform 0.5s;
+}
+
+.gallery .img-container:hover img {
+    transform: scale(1.2);
+    transition: transform 1s linear;
+}
+
+@media (max-width: 1400px) {
+    .hero {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        order: -1;
+        text-align: center;
+        width: auto;
+        width: 80%;
+    }
+
+    .hero .info {
+        width: auto;
+        align-items: center;
+        width: 80%;
+    }
+
+    .hero .info > p {
+        text-align: center;
+    }
+
+    .hero > img {
+        width: 100px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .gallery .img-container {
+        max-width: 100%;
+    }
+
+    .gallery img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1000px) {   
     header {
         padding-top: 20px;
+        padding-bottom: 30px;
     }
     
     header > a img {
@@ -149,8 +279,6 @@ header button span {
         align-items: center;
         gap: 10px;
         padding: 20px 0;
-        
-        
         border: 2px solid var(--text-color); 
     }
     
@@ -159,13 +287,40 @@ header button span {
         border-bottom: 1px solid var(--subtitle-color);
     }
 
+    .hero {
+        margin-bottom: 30px;
+    }
+
+    .hero h1 {
+        width: 80%;
+    }
+
+    .hero .info {
+        width: 80%
+    }
+
     .menu {
         display: block;
         order: 5;
     }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        row-gap: 10px;
+    }
+
+    .gallery .img-container:hover img {
+        transform: scale(1);
+    }
+
 }
 
 @media (max-width: 600px){
+    html {
+        font-size: 12px;
+    }
+    
     header > a img {
         width: 150px;
     }
@@ -184,5 +339,23 @@ header button span {
     
     header button:active img {
         transform: rotate(-30deg);
+    }
+
+    .hero h1 {
+        width: 100%;
+    }
+
+    .hero .info {
+        width: 100%
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px){
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
