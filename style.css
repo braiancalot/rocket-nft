@@ -431,11 +431,11 @@ main {
 }
 
 .section-best .show-more{
-    width: 240px;
-    margin: 0 auto;
+    width: auto;
 }
 
 .section-best .show-more a {
+    justify-content: center;
     display: flex;
 }
 
