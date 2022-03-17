@@ -433,6 +433,7 @@ main {
 .section-best .show-more{
     width: 240px;
     margin: 0 auto;
+    display: flex;
 }
 
 .section-best .show-more span{
